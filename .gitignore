@@ -25,5 +25,3 @@ project/boot/
 project/plugins/project
 project/sbt-ui.sbt
 target/
-
-deftones2021
