@@ -31,6 +31,7 @@ val applicationDependencies = {
     "de.heikoseeberger"      %% "akka-http-json4s"    % akkaHttpJson4sVersion,
     "org.json4s"             %% "json4s-jackson"      % json4sVersion,
     "org.json4s"             %% "json4s-ext"          % json4sVersion,
+    "org.json4s"             %% "json4s-native"       % json4sVersion,
     "joda-time"              %  "joda-time"           % jodaTimeVersion,
     "org.joda"               %  "joda-convert"        % jodaConvertVersion,
     "ch.qos.logback"         %  "logback-classic"     % logbackVersion,

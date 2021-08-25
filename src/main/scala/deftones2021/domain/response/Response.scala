@@ -5,3 +5,5 @@ case class Response[T](
   limit: Int,
   offset: Int,
   results: Seq[T])
+
+case class ResponseSuccess(message: String)

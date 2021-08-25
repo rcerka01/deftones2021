@@ -1,8 +1,10 @@
 package deftones2021.api.directives
 
-import deftones2021.api.directives.ResponseDirectives.{MultiEntityResponseData, SingleEntityResponseData}
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse, StatusCode}
+import deftones2021.api.directives.ResponseDirectives.{AddedEntityResponseData, MultiEntityResponseData, SingleEntityResponseData}
 import deftones2021.api.params.Paginate
 import deftones2021.domain.response.Response
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 trait ResponseDirectives {
@@ -34,10 +36,22 @@ trait ResponseDirectives {
     }
   }
 
+  def toResponse(status: StatusCode)
+                (resultsFuture: Future[AddedEntityResponseData]): Future[HttpResponse] = {
+
+    resultsFuture.map ( result => {
+      val entity = HttpEntity(ContentTypes.`application/json`, result.message)
+      HttpResponse(
+        status = status,
+        entity = entity)
+    })
+  }
+
 }
 
 object ResponseDirectives {
   case class SingleEntityResponseData[T](entity: Option[T], total: Int)
   case class MultiEntityResponseData[T](entities: Seq[T], total: Int)
+  case class AddedEntityResponseData(message: String)
 }
 

@@ -13,14 +13,31 @@ One Paragraph of project description goes here
 sbt run
 ```
 
+Available endpoints:
+```
+GET .../tracks
+GET .../tracks/{id}
+POST .../track/create
+```
+Create track must be requested with Content-Type = application/json header and request body with correct Truck structure.
+
 Service will be available here: [http://localhost:8080/status](http://localhost:8080/status)
+
+Missing Funcftionality:
+```
+truck id in db must be unique
+all other types of validators
+dates to date format for track Domain
+unit tests reading data source file (rather pointles)
+order / sort
+...
+```
 
 ## Running the tests
 
 ```
 sbt test # Unit tests
 sbt it:test # Integration tests
-sbt test-all # Run all
 ```
 
 To validate coverage run

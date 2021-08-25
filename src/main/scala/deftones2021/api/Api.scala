@@ -11,11 +11,11 @@ import deftones2021.datasource.TrackDataSource
 import scala.concurrent.ExecutionContextExecutor
 
 trait Api extends StatusApi
-  with ItemApi
+  with TrackApi
   with deftones2021RejectionHandler
   with deftones2021ExceptionHandler {
 
-  override def itemDataSource: TrackDataSource = deftones2021Context.itemDataSource
+  override def trackDataSource: TrackDataSource = deftones2021Context.itemDataSource
 
   lazy val routes = {
     logRequestResult("deftones2021") {
