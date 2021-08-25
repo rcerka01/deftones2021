@@ -7,16 +7,16 @@ import deftones2021.domain.Track
 import deftones2021.domain.response.{ErrorResponse, Response}
 import org.specs2.mutable.Specification
 
-class MultipleItemSpec extends Specification
+class MultipleTrackSpec extends Specification
   with Specs2RouteTest
   with Api {
 
   override lazy val maximumPageLimit: Int = 50
 
-  "The service" should {
+  "The service for multiple tracks" should {
 
     "return a response with items" in {
-      Get("/items") ~> Route.seal(routes) ~> check {
+      Get("/tracks") ~> Route.seal(routes) ~> check {
         status must be equalTo StatusCodes.OK
         contentType must be equalTo `application/json`
         responseAs[Response[Track]].total must be > 0
@@ -25,14 +25,14 @@ class MultipleItemSpec extends Specification
     }
 
     "return a response with the requested limit" in {
-      Get("/items?limit=1") ~> Route.seal(routes) ~> check {
+      Get("/tracks?limit=1") ~> Route.seal(routes) ~> check {
         status must be equalTo StatusCodes.OK
         responseAs[Response[Track]].total must be equalTo 1
       }
     }
 
     "return a 400 Bad Request when a limit greater than the maximum is requested" in {
-      Get("/items?limit=51") ~> Route.seal(routes) ~> check {
+      Get("/tracks?limit=51") ~> Route.seal(routes) ~> check {
         status must be equalTo StatusCodes.BadRequest
         responseAs[ErrorResponse].errors.size must be > 0
       }

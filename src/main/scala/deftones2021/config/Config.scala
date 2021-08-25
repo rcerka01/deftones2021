@@ -17,4 +17,6 @@ trait Config {
   lazy val errorSchemaUrl: String = config.getString("service.schema.error-response-url")
 
   lazy val errorDocumentationUrl: String = config.getString("service.error.documentation-url")
+
+  lazy val initialDataFileName: String = config.getString("data.file-name")
 }
