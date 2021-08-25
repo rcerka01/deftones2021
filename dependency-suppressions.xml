@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+<!--    <suppress>-->
+<!--        <notes><![CDATA[-->
+<!--       Example Suppression.-->
+<!--        ]]></notes>-->
+<!--        <gav regex="true">^package to suppress_scala version:package version.*.*$</gav>-->
+<!--        <cve>CVE Number</cve>-->
+<!--    </suppress>-->
+</suppressions>
